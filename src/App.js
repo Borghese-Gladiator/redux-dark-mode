@@ -1,58 +1,67 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+// Styling
+import styled from 'styled-components';
+import theme from "styled-theming";
+// Components
+import DarkThemeProvider from './components/DarkThemeProvider';
+import DarkThemeToggle from './features/darkThemeToggle/DarkThemeToggle';
+import Counter from './features/counter/Counter';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
-}
+export const backgroundColor = theme("theme", {
+  light: "#fff",
+  dark: "#2d2d2d",
+});
+
+export const textColor = theme("theme", {
+  light: "#000",
+  dark: "#fff",
+});
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  background-color: ${backgroundColor};
+  color: ${textColor};
+`;
+
+const App = () => (
+  <DarkThemeProvider>
+    <Container>
+      <h1>My Dark Theme Is Better Than Yours</h1>
+      <DarkThemeToggle />
+      <Counter />
+    </Container>
+  </DarkThemeProvider>
+);
 
 export default App;
+
+/*
+const COLORS = {
+  blue: '#213458',
+  white: '#FFF',
+  charcoal: '#353C51'
+}
+
+export const LIGHT_MODE = {
+  appBarColor: COLORS.white,
+  headerIconColor: COLORS.white,
+  backgroundColor: COLORS.white,
+  primaryBtnColor: COLORS.white,
+  secondaryBtnColor: COLORS.white,
+}
+
+export const DARK_MODE = {
+  appBarColor: COLORS.white,
+  headerIconColor: COLORS.white,
+  backgroundColor: COLORS.white,
+  primaryBtnColor: COLORS.white,
+  secondaryBtnColor: COLORS.white,
+}
+
+*/
