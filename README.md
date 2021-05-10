@@ -1,3 +1,14 @@
+# First Redux Project
+Implemented dark mode and stored info in Redux
+- DarkThemeProvider component which uses darkTheme selector
+- DarkThemeToggle component - reducer
+- directory structure is feature based 
+  - all reducers should be put with their corresponding feature component)
+  - export selector for use by /components/
+
+## Mistakes
+- reducer initial state (& state in general) MUST be an object - boolean results in error when reducer is called
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
