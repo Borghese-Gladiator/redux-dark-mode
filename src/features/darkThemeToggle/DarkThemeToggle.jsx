@@ -4,7 +4,7 @@ import {
   toggle,
   selectMode
 } from './darkThemeToggleSlice'; // actions
-import styles from './DarkThemeToggle.module.css';
+// import styles from './DarkThemeToggle.module.css';
 
 function DarkThemeToggle() {
   const darkThemeEnabled = useSelector(selectMode);
